@@ -329,7 +329,7 @@ p {
     background: #4a4949;
 }
 
-.list tr:last-child {
+.list tbody tr:last-child {
     border-bottom: none;
     border-radius: 20px;
 }
