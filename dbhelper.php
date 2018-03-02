@@ -115,7 +115,7 @@
         }
 
         
-        $sql = "SELECT count(*) FROM pokemon";
+        $sql = "SELECT * FROM pokemon";
         $res = mysqli_query($conn, $sql);
         $result = mysqli_num_rows($res);
         $allpages = ceil($result / $x_pag);
@@ -132,8 +132,7 @@
         else if (mysqli_num_rows($printsql) == 0) {
             echo "Nessun risultato.";
         } else {
-            $cont = 1;
-            echo "<div class='mainlist'>
+            echo "<div class='catalog'>
                     <table class='list'>
                         <thead>
                             <tr>
@@ -148,37 +147,40 @@
                         <tbody>";
             while($row = mysqli_fetch_assoc($printsql)){
                 echo "  <tr>
-                            <th scope='row'>" . $cont. "</th>
+                            <th scope='row'>" . $row['id'] . "</th>
                                 <td><img src='img/sprites/" . $row['id']. ".png'></td>
                                 <td>" . $row['identifier'] . "</td>
                                 <td>" . $row['height'] . "</td>
                                 <td>" . $row['weight'] . "</td>
                                 <td>" . $row['id'] . "</td>
                         </tr>";
-                $cont++;
             }
             
             echo "</tbody> </table> </div>";
             
-            if ($all_pages > 1){ //[9]
+            echo "<div class='pagcontainer'>";
+            
+            if ($allpages > 1){ //[9]
               if ($pag > 1){  //[10]
                   //[11]:$_SERVER['PHP_SELF'] returns the courrent page address
                   //eg: http://localhost/PHP_TESTS/pkStore/catalog.php
                   //if we add the string ?pag=x, the value x is stored in $_GET['pag']
-                  echo "<a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag - 1) . "\">";
-                  echo "Pagina Indietro</a>&nbsp;";
+                  echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag - 1) . "\">";
+                  echo "Pagina Indietro</a>&nbsp;</button>";
               }
-
-              if ($all_pages > $pag){  //[12]
-                  echo "<a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag + 1) . "\">";
-                  echo "Pagina Avanti</a>";
-              }
-              echo "<br>";
-              for ($p=1; $p<=$all_pages; $p++) { //[13]
-                  echo "<a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
-                  echo $p . "</a>&nbsp;";
+                
+              for ($p=$pag; $p<$pag + 5; $p++) { //[13]
+                  echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                  echo $p . "</a>&nbsp;</button>";
                 }
+
+              if ($allpages > $pag){  //[12]
+                  echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag + 1) . "\">";
+                  echo "Pagina Avanti</a></button>";
+              }
             }
+            
+            echo "</div>";
         } 
     }
 ?>

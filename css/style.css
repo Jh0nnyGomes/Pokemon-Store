@@ -345,3 +345,56 @@ p {
     text-align: center;
     vertical-align: middle;
 }
+
+.catalog {
+    position: absolute;
+    width: auto;
+    left: 50px;
+    top: 50px;
+    bottom: 120px;
+    right: 50px;
+    overflow: auto;
+}
+
+.catalog::-webkit-scrollbar { 
+    display: none; 
+}
+
+.pagcontainer{
+    position: absolute;
+    top 50px;
+    bottom: 50px;
+    left: 35%;
+    right: 30%;
+    word-wrap: break-word;
+}
+
+.pagbtn{
+    background-color: #ffffff;
+    opacity: 0.8;
+    border: 2px solid #676767;
+    border-radius: 10px;
+    height: 25px;
+    text-align: center;
+    padding-left: 4px;
+}
+
+.pagbtn:hover{
+    opacity: 1;
+    transition: 0.5s;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pagbtn a{
+    text-decoration: none;
+    border: none;
+}
+
+.pagbtn a:link{
+    color: black;
+}
+
+.pagbtn a:visited{
+    color: black;
+}
+
