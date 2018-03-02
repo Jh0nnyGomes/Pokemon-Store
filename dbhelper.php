@@ -169,10 +169,36 @@
                   echo "Pagina Indietro</a>&nbsp;</button>";
               }
                 
-              for ($p=$pag; $p<$pag + 5; $p++) { //[13]
-                  echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
-                  echo $p . "</a>&nbsp;</button>";
-                }
+              if($pag==$allpages){
+                  echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $pag . "\">";
+                  echo $pag . "</a>&nbsp;</button>";
+              } else if($pag==$allpages-1){
+                  for ($p=$pag; $p<$pag + 2; $p++) { //[13]
+                      echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                      echo $p . "</a>&nbsp;</button>";
+                    }
+                }else if($pag==$allpages-2){
+                  for ($p=$pag; $p<$pag + 3; $p++) { //[13]
+                      echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                      echo $p . "</a>&nbsp;</button>";
+                    }
+                }else if($pag==$allpages-3){
+                  for ($p=$pag; $p<$pag + 4; $p++) { //[13]
+                      echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                      echo $p . "</a>&nbsp;</button>";
+                    }
+                }else if($pag==$allpages-4){
+                  for ($p=$pag; $p<$pag + 5; $p++) { //[13]
+                      echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                      echo $p . "</a>&nbsp;</button>";
+                    }
+                }else{
+                  for ($p=$pag; $p<$pag + 5; $p++) { //[13]
+                      echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                      echo $p . "</a>&nbsp;</button>";
+                    }
+              }
+                
 
               if ($allpages > $pag){  //[12]
                   echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag + 1) . "\">";
