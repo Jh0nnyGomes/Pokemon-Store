@@ -47,6 +47,12 @@
             while($row = mysqli_fetch_assoc($result)){
                 echo "Bentornato " . $row['username'];
             }
+            
+            session_start();
+
+            $_SESSION['login_user'] = $username;
+
+            echo $_SESSION['login_user'];
         }
         
     }
@@ -235,4 +241,6 @@
             echo "</div>";
         } 
     }
+
+    
 ?>
