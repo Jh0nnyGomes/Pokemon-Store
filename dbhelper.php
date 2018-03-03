@@ -165,7 +165,7 @@
                   //[11]:$_SERVER['PHP_SELF'] returns the courrent page address
                   //eg: http://localhost/PHP_TESTS/pkStore/catalog.php
                   //if we add the string ?pag=x, the value x is stored in $_GET['pag']
-                  echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag - 1) . "\">";
+                  echo "<button class='pagbtn backward'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag - 1) . "\">";
                   echo "Pagina Indietro</a>&nbsp;</button>";
               }
                 
@@ -227,7 +227,7 @@
                 
 
               if ($allpages > $pag){  //[12]
-                  echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag + 1) . "\">";
+                  echo "<button class='pagbtn forward'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag + 1) . "\">";
                   echo "Pagina Avanti</a></button>";
               }
             }

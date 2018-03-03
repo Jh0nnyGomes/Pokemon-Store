@@ -364,9 +364,8 @@ p {
     position: absolute;
     top 50px;
     bottom: 50px;
-    left: 35%;
-    right: 30%;
-    word-wrap: break-word;
+    left: 30%;
+    right: 25%;
 }
 
 .pagbtn{
@@ -374,9 +373,12 @@ p {
     opacity: 0.8;
     border: 2px solid #676767;
     border-radius: 10px;
-    height: 25px;
+    height: 35px;
+    width: 45px;
     text-align: center;
     padding-left: 4px;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .pagbtn:hover{
@@ -405,7 +407,7 @@ p {
     opacity: 0.8;
     border: 2px solid #676767;
     border-radius: 10px;
-    height: 25px;
+    height: 35px;
     text-align: center;
     padding-left: 4px;
 }
@@ -419,4 +421,24 @@ p {
 .pagbtn.active a{
     text-decoration: none;
     border: none;
+}
+
+.pagbtn.backward{
+    background-image: url(../img/backward.png);
+    background-position: 10px -10px;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    width: 175px;
+    height: 35px;
+    padding: 3px 3px 3px 50px;
+}
+
+.pagbtn.forward{
+    background-image: url(../img/forward.png);
+    background-position: 110px -10px;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    width: 175px;
+    height: 35px;
+    padding: 3px 65px 3px 3px;
 }
