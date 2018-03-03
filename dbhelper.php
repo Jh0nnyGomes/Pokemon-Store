@@ -181,7 +181,9 @@
                       echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
-                  for ($p=$pag; $p<$pag + 2; $p++) { 
+                  echo "<button class='pagbtn active'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $pag . "\">";
+                  echo $pag . "</a>&nbsp;</button>";
+                  for ($p=$pag + 1; $p<$pag + 2; $p++) { 
                       echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
@@ -190,7 +192,9 @@
                       echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
-                  for ($p=$pag; $p<$pag + 3; $p++) { 
+                  echo "<button class='pagbtn active'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $pag . "\">";
+                  echo $pag . "</a>&nbsp;</button>";
+                  for ($p=$pag + 1; $p<$pag + 3; $p++) { 
                       echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
@@ -199,17 +203,23 @@
                       echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
-                  for ($p=$pag; $p<$pag + 4; $p++) { 
+                  echo "<button class='pagbtn active'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $pag . "\">";
+                  echo $pag . "</a>&nbsp;</button>";
+                  for ($p=$pag + 1; $p<$pag + 4; $p++) { 
                       echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
                 }else if($pag==$allpages-4){
-                  for ($p=$pag; $p<$pag + 5; $p++) { 
+                  echo "<button class='pagbtn active'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $pag . "\">";
+                  echo $pag . "</a>&nbsp;</button>";
+                  for ($p=$pag + 1; $p<$pag + 5; $p++) { 
                       echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
                 }else{
-                  for ($p=$pag; $p<$pag + 5; $p++) { 
+                  echo "<button class='pagbtn active'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $pag . "\">";
+                  echo $pag . "</a>&nbsp;</button>";
+                  for ($p=$pag + 1; $p<$pag + 5; $p++) { 
                       echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
