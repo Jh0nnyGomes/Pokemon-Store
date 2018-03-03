@@ -386,6 +386,8 @@ p {
 }
 
 .pagbtn a{
+    padding-left: 4px;
+    padding-top: 2px;   
     text-decoration: none;
     border: none;
 }
@@ -398,3 +400,23 @@ p {
     color: black;
 }
 
+.pagbtn.active{
+    background-color: #00ff62;
+    opacity: 0.8;
+    border: 2px solid #676767;
+    border-radius: 10px;
+    height: 25px;
+    text-align: center;
+    padding-left: 4px;
+}
+
+.pagbtn.active:hover{
+    opacity: 1;
+    transition: 0.5s;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pagbtn.active a{
+    text-decoration: none;
+    border: none;
+}

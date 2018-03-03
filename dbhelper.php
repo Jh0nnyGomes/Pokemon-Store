@@ -165,36 +165,52 @@
                   //[11]:$_SERVER['PHP_SELF'] returns the courrent page address
                   //eg: http://localhost/PHP_TESTS/pkStore/catalog.php
                   //if we add the string ?pag=x, the value x is stored in $_GET['pag']
-                  echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag - 1) . "\">";
+                  echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . ($pag - 1) . "\">";
                   echo "Pagina Indietro</a>&nbsp;</button>";
               }
                 
               if($pag==$allpages){
-                  echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $pag . "\">";
+                  for ($p=$pag - 4; $p<=$pag - 1; $p++) {
+                      echo "<button class='pagbtn'><a  href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                      echo $p . "</a>&nbsp;</button>";
+                    }
+                  echo "<button class='pagbtn active'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $pag . "\">";
                   echo $pag . "</a>&nbsp;</button>";
-              } else if($pag==$allpages-1){
-                  for ($p=$pag; $p<$pag + 2; $p++) { //[13]
-                      echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+              } else if($pag==$allpages-1){ //se è la penultima pagina stampa fino all'ultima pagina e le pagine precedenti
+                  for ($p=$pag - 3; $p<=$pag - 1; $p++) {
+                      echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
-                }else if($pag==$allpages-2){
-                  for ($p=$pag; $p<$pag + 3; $p++) { //[13]
-                      echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                  for ($p=$pag; $p<$pag + 2; $p++) { 
+                      echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
-                }else if($pag==$allpages-3){
-                  for ($p=$pag; $p<$pag + 4; $p++) { //[13]
-                      echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                }else if($pag==$allpages-2){ //se è la terzultima pagina stampa fino all'ultima pagina e le pagine precedenti
+                  for ($p=$pag - 2; $p<=$pag - 1; $p++) { 
+                      echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                      echo $p . "</a>&nbsp;</button>";
+                    }
+                  for ($p=$pag; $p<$pag + 3; $p++) { 
+                      echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                      echo $p . "</a>&nbsp;</button>";
+                    }
+                }else if($pag==$allpages-3){ //se è la quartultima pagina stampa fino all'ultima pagina e le pagine precedenti
+                  for ($p=$pag - 1; $p<$pag; $p++) { 
+                      echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                      echo $p . "</a>&nbsp;</button>";
+                    }
+                  for ($p=$pag; $p<$pag + 4; $p++) { 
+                      echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
                 }else if($pag==$allpages-4){
-                  for ($p=$pag; $p<$pag + 5; $p++) { //[13]
-                      echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                  for ($p=$pag; $p<$pag + 5; $p++) { 
+                      echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
                 }else{
-                  for ($p=$pag; $p<$pag + 5; $p++) { //[13]
-                      echo "<button class='pagbtn'><a class='pagbtn' href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
+                  for ($p=$pag; $p<$pag + 5; $p++) { 
+                      echo "<button class='pagbtn'><a href=\"" . $_SERVER['PHP_SELF'] . "?pag=" . $p . "\">";
                       echo $p . "</a>&nbsp;</button>";
                     }
               }
