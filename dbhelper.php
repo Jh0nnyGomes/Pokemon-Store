@@ -39,8 +39,11 @@
     function Login($conn, $username, $psw){
         $check = mysqli_query($conn, "SELECT * FROM user_data WHERE (username = '" . $username ."' or email = '" . $username . "') and psw = '" . $psw . "'");
             
-        if(mysqli_fetch_assoc($check) == null)
+        if(mysqli_fetch_assoc($check) == null){
             print("Dati incorretti");
+            
+            return false;
+        }
         else{
             $result = mysqli_query($conn, "SELECT username FROM user_data WHERE (username = '" . $username ."' or email = '" . $username . "')") or die (mysqli_error($conn));
 
@@ -48,11 +51,7 @@
                 echo "Bentornato " . $row['username'];
             }
             
-            session_start();
-
-            $_SESSION['login_user'] = $username;
-
-            echo $_SESSION['login_user'];
+            return array(true, $username);
         }
         
     }
@@ -240,6 +239,18 @@
             
             echo "</div>";
         } 
+    }
+
+    function LoginSession($login){
+        if($login[0]){
+            session_start();
+
+            $_SESSION['login_user'] = $login[1];
+
+            echo $_SESSION['login_user'];
+            
+            return true;
+        }          
     }
 
     

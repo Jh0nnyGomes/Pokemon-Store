@@ -31,7 +31,7 @@
                 $psw = $_POST["password"];
                 
                 include('dbhelper.php');
-                Login(Connect(), $username, $psw);
+                LoginSession(Login(Connect(), $username, $psw));
             
                                     
             ?>
