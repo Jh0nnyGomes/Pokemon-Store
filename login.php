@@ -32,6 +32,14 @@
                 
                 include('dbhelper.php');
                 LoginSession(Login(Connect(), $username, $psw));
+                
+                if(isset($_SESSION['login_user'])){
+                    echo "<br> Ciao: " . $_SESSION['login_user'];
+                    echo "<script type='text/javascript' src='js/jquery-3.3.1.js'></script>
+                          <script type='text/javascript' src='js/script.js'>
+                                UserIcon();
+                          </script>";
+                }
             
                                     
             ?>

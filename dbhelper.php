@@ -246,12 +246,8 @@
             session_start();
 
             $_SESSION['login_user'] = $login[1];
-
-            echo $_SESSION['login_user'];
-            
-            return true;
         }          
     }
-
+    
     
 ?>
