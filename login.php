@@ -2,6 +2,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css">
+        <script type='text/javascript' src='js/jquery-3.3.1.js'></script>
+        <script type='text/javascript' src='js/script.js'></script>
     </head>
     <body>
         <div style="height: 60px">
@@ -35,10 +37,7 @@
                 
                 if(isset($_SESSION['login_user'])){
                     echo "<br> Ciao: " . $_SESSION['login_user'];
-                    echo "<script type='text/javascript' src='js/jquery-3.3.1.js'></script>
-                          <script type='text/javascript' src='js/script.js'>
-                                UserIcon();
-                          </script>";
+                    echo '<script> UserIcon("Jhonny"); </script>';
                 }
             
                                     

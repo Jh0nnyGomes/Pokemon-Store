@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
+    <script type='text/javascript' src='js/jquery-3.3.1.js'></script>
+    <script type='text/javascript' src='js/script.js'></script>
 </head>
 
 <body>
@@ -30,7 +32,12 @@
         <?php
             
                 include('dbhelper.php');
-                PokemonForPage(Connect());  
+                PokemonForPage(Connect());
+        
+                if(isset($_SESSION['login_user'])){
+                    echo "<br> Ciao: " . $_SESSION['login_user'];
+                    echo '<script> UserIcon("Jhonny"); </script>';
+                }
             ?>
     </div>
 </body>
