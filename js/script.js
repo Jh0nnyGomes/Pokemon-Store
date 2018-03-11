@@ -4,6 +4,6 @@
 /*global $, jQuery*/
 function UserIcon(username) {
     "use strict";
-    var html = "<ul class='userIcon'><li><img src='../img/player.png'>" + username + "</li> <li><a href='logout.php'>Logout</a></li></ul>";
+    var html = "<ul class='userIcon'><li><a href='logout.php'>Logout</a></li> <li>" + username + "<img class='usrimg' src='img/player.png'></li></ul>";
     $("ul.login-navbar").replaceWith(html);
 }

@@ -37,7 +37,7 @@
                 
                 if(isset($_SESSION['login_user'])){
                     echo "<br> Ciao: " . $_SESSION['login_user'];
-                    echo '<script> UserIcon("Jhonny"); </script>';
+                    echo '<script> UserIcon("'. $_SESSION['login_user'] .'"); </script>';
                 }
             
                                     

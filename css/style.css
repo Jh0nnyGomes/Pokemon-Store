@@ -172,6 +172,7 @@ h1 {
 
 .userIcon li:last-child{
     border-left: none;
+    width: 75px;
 }
 
 .userIcon li:hover{
@@ -483,4 +484,7 @@ p {
     width: 175px;
     height: 35px;
     padding: 3px 65px 3px 3px;
+}
+
+.usrimg{
 }
