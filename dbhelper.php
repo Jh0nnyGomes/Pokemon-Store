@@ -24,6 +24,7 @@
             } else{
                 if($conn->query($sql) === TRUE) {
                     echo "Registrazione andata a buon fine.";
+                    return array(true, $username);
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }

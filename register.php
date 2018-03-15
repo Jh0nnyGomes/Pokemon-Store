@@ -32,7 +32,12 @@
                 $confirmpsw = $_POST["confirmpassword"];
             
                 include('dbhelper.php');
-                Register(Connect(), $username, $email, $psw, $confirmpsw);
+                LoginSession(Register(Connect(), $username, $email, $psw, $confirmpsw));
+                
+                session_start();
+                if(isset($_SESSION['login_user'])){
+                    echo '<script> UserIcon("'. $_SESSION['login_user'] .'"); </script>';
+                }
             
             ?>
         </div>
