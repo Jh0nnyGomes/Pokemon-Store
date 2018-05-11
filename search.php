@@ -31,7 +31,8 @@
                 
                 include('dbhelper.php');
                 
-                FindPokemon(Connect(), $find);
+                $db_handler = new DBHelper();
+                $db_handler->FindPokemon($find);
                 
             ?>
         </div>

@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="css/style.css">
     <script type='text/javascript' src='js/jquery-3.3.1.js'></script>
     <script type='text/javascript' src='js/script.js'></script>
+    <?php
+        if (session_status() == PHP_SESSION_NONE)
+            session_start();
+    ?>
 </head>
 
 <body>
@@ -32,9 +36,9 @@
         <?php
             
                 include('dbhelper.php');
-                PokemonForPage(Connect());
-                
-                session_start();
+                $db_handler = new DBHelper();
+                $db_handler->PokemonForPage();
+        
                 if(isset($_SESSION['login_user'])){
                     echo '<script> UserIcon("'. $_SESSION['login_user'] .'"); </script>';
                 }

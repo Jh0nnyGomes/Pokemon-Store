@@ -32,7 +32,9 @@
                 $confirmpsw = $_POST["confirmpassword"];
             
                 include('dbhelper.php');
-                LoginSession(Register(Connect(), $username, $email, $psw, $confirmpsw));
+                
+                $db_handler = new DBHelper();
+                $db_handler->Register($username, $email, $psw, $confirmpsw);
                 
                 session_start();
                 if(isset($_SESSION['login_user'])){

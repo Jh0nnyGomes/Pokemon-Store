@@ -33,7 +33,9 @@
                 $psw = $_POST["password"];
                 
                 include('dbhelper.php');
-                LoginSession(Login(Connect(), $username, $psw));
+                
+                $db_handler = new DBHelper();
+                $db_handler->Login($username, $psw);
                 
                 if(isset($_SESSION['login_user'])){
                     echo '<script> UserIcon("'. $_SESSION['login_user'] .'"); </script>';

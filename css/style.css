@@ -414,8 +414,8 @@ p {
     position: absolute;
     width: auto;
     left: 50px;
-    top: 50px;
-    bottom: 120px;
+    top: 20px;
+    bottom: 40px;
     right: 50px;
     overflow: auto;
 }
@@ -427,7 +427,7 @@ p {
 .pagcontainer{
     position: absolute;
     top 50px;
-    bottom: 50px;
+    bottom: 20px;
     left: 30%;
     right: 25%;
 }
