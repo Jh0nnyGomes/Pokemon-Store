@@ -153,9 +153,11 @@
                         </thead>
                         <tbody>";
             while($row = mysqli_fetch_assoc($printsql)){ //ciclo per la "stampa" dei risultati 
+                $idPoke = $row['id'];
                 echo "  <tr>
                             <th scope='row'>" . $row['id'] . "</th>
-                                <td><img src='img/sprites/" . $row['id']. ".png'></td>
+                                <td>" . "<form method='get' action='details.php>
+                                <input type = 'image'<img src='img/sprites/" . $row['id']. ".png'></td>
                                 <td>" . $row['identifier'] . "</td>
                                 <td>" . $row['height'] . "</td>
                                 <td>" . $row['weight'] . "</td>

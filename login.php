@@ -11,7 +11,7 @@
         </div>
         <div class="main-navbar">
             <ul class="main-navbarlist">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="catalogo.php">Catalogo</a></li>
                 <li><a href="about.html">About</a></li>
                 

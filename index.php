@@ -29,17 +29,14 @@
     </div>
 
     <div class="main-container">
-        <?php
-            
-                include('dbhelper.php');
-                PokemonForPage(Connect());
-                
-                session_start();
+    </div>
+
+    <?php
+            session_start();
                 if(isset($_SESSION['login_user'])){
                     echo '<script> UserIcon("'. $_SESSION['login_user'] .'"); </script>';
                 }
-            ?>
-    </div>
+        ?>
 </body>
 
 </html>
