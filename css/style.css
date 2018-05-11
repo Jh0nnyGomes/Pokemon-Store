@@ -506,3 +506,10 @@ p {
     height: 35px;
     padding: 3px 65px 3px 3px;
 }
+
+.detail-img{
+    position: absolute;
+    left: 45%;
+    width: 150px;
+    height: 150px;
+}

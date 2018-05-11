@@ -130,7 +130,7 @@
             }
         }
 
-        function PokemonForPage() {
+        function PokemonForPage(){
 
             $x_pag = 5;  //numero di risultati per pagina
 
@@ -261,7 +261,26 @@
             }
 
             echo "</div>";
-        } 
+        }
+        
+        function Details(){
+            
+            if(isset($_GET['idPoke']))
+                $idPoke = $_GET['idPoke'];
+            else
+                $idPoke = 1;
+            
+            $query = "SELECT * FROM pokemon WHERE id = '" . $idPoke . "'";
+            $pokemon = $this->runQuery($query);
+            $row = $pokemon->fetch();
+            
+            $productId = $row['id'];
+            $productName = $row['identifier'];
+            $productPrice = $row['base_experience'];
+            
+            echo "<img class = 'detail-img' src='img/sprites/" . $row['id']. ".png'>";
+            
+        }
     }
     
 ?>
