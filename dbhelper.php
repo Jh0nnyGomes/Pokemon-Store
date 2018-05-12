@@ -115,9 +115,12 @@
                             </thead>
                             <tbody>";
                 while($row = $result->fetch()){ //ciclo di stampa dei Pokemon in una tabella, mette dentro un array assocciativo tutti i risultati ottenuti
+                    $idPoke = $row['id'];
                     echo "  <tr>
                                 <th scope='row'>" . $cont. "</th>
-                                    <td><img src='img/sprites/" . $row['id']. ".png'></td>
+                                    <td>" . "<form method='get' action='details.php'>" .
+                                    "<input type = 'hidden' name = 'idPoke' value = '" . $idPoke . "'/>" .
+                                    "<input type = 'image' src='img/sprites/" . $row['id']. ".png'/></form></td>
                                     <td>" . $row['identifier'] . "</td>
                                     <td>" . $row['height'] . "</td>
                                     <td>" . $row['weight'] . "</td>
@@ -274,12 +277,73 @@
             $pokemon = $this->runQuery($query);
             $row = $pokemon->fetch();
             
+            $height = $this->modifyKG_M($row['height']);
+            $weight = $this->modifyKG_M($row['weight']);
+            $identifier = $this->toUpper($row['identifier']);
+            
+            
             $productId = $row['id'];
-            $productName = $row['identifier'];
+            $productName = $identifier;
             $productPrice = $row['base_experience'];
             
-            echo "<img class = 'detail-img' src='img/sprites/" . $row['id']. ".png'>";
+            $price = $this->addCurrency($productPrice);
             
+            //echo "<img class = 'detail-img' src='img/sprites/" . $row['id']. ".png'>";
+            
+            echo "<div class = 'details-container'>" .
+                    "<table class = 'detail-table'>" .
+                        "<thead>" . 
+                            "<tr>" .
+                                "<th rowspan='2' colspan='4'>" . $identifier . "</th>" .
+                            "</tr>" .
+                        "</thead>" .
+                        "<tbody>" .
+                            "<tr>" .
+                                "<td colspan='4'>" .
+                                    "<img src='img/sprites/" . $row['id']. ".png'>" . 
+                                "</td>" .
+                            "</tr>" .
+                            "<tr>" .
+                                "<td colspan='2'>" . $identifier . "</td>" .
+                                "<td>" . $row['id'] . "</td>" .
+                            "</tr>" .
+                            "<tr>" .
+                                "<td colspan='2'>" . $height . "m</td>" .
+                                "<td colspan='2'>" . $weight . "kg</td>" .
+                            "</tr>" .
+                            "<tr>" .
+                                "<td colspan='4'>" . $price . "</td>" .
+                            "</tr>" .
+                        "</tbody>" .
+                    "</table>";
+                            
+            
+        }
+        
+        function modifyKG_M($string){
+            $lenght = strlen($string);
+            
+            if($lenght > 1)
+                $newString = substr_replace($string, ',' , $lenght-1, 0);
+            else
+                $newString = substr_replace($string, '0,' , $lenght-1, 0);
+            
+            return $newString;
+            
+        }
+        
+        function toUpper($string){
+            $newString = ucfirst($string);
+            
+            return $newString;
+        }
+        
+        function addCurrency($string){
+            $lenght = strlen($string);
+            
+            $newString = substr_replace($string, '€', $lenght, 0);
+            
+            return $newString;
         }
     }
     

@@ -507,9 +507,51 @@ p {
     padding: 3px 65px 3px 3px;
 }
 
-.detail-img{
+.detail-table{
+    width: 20%;
     position: absolute;
-    left: 45%;
+    top: 10%;
+    left: 40%;
+    right: 40%;
+    border-collapse: collapse;
+    background-color: #b9b9b9;
+    border: 2px solid #5e9bed;
+}
+
+.detail-table thead{
+    text-align: center;
+    border-bottom: 2px solid rgba(195, 195, 195, 0.5);
+}
+
+.detail-table tr{
+    text-align: center;
+    border-bottom: 2px solid rgba(195, 195, 195, 0.5);
+    font-size: 20px;
+}
+
+.detail-table tr:last-child{
+    text-align: center;
+    border-bottom: none;
+}
+
+.detail-table tr:first-child{
+    text-align: center;
+    font-size: 30px;
+}
+
+.detail-table td{
+    text-align: center;
+    border-right: 2px solid rgba(195, 195, 195, 0.5);
+}
+
+.detail-table td:last-child{
+    text-align: center;
+    border-right: none;
+}
+
+.detail-table img{
     width: 150px;
     height: 150px;
 }
+
+
