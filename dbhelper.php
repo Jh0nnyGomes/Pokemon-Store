@@ -290,7 +290,7 @@
             
             //echo "<img class = 'detail-img' src='img/sprites/" . $row['id']. ".png'>";
             
-            echo "<div class = 'details-container'>" .
+            echo "<div class = 'details-container'>" . //div con la tabella dei dettagli dei Pokemon
                     "<table class = 'detail-table'>" .
                         "<thead>" . 
                             "<tr>" .
@@ -305,7 +305,7 @@
                             "</tr>" .
                             "<tr>" .
                                 "<td colspan='2'>" . $identifier . "</td>" .
-                                "<td>" . $row['id'] . "</td>" .
+                                "<td colspan='2'>" . $row['id'] . "</td>" .
                             "</tr>" .
                             "<tr>" .
                                 "<td colspan='2'>" . $height . "m</td>" .
@@ -315,8 +315,56 @@
                                 "<td colspan='4'>" . $price . "</td>" .
                             "</tr>" .
                         "</tbody>" .
-                    "</table>";
-                            
+                    "</table>" .
+                "</div>";
+            
+            echo "<div class='add'>" .
+                    "<form method='post' action='cart'>" . 
+                        "<input type='hidden' name='productId' value='" . $productId . "'/>" .
+                        "<input type='hidden' name='productPrice' value='" . $productPrice . "'/>" .
+                        "<input type='hidden' name='productName' value='" . $productName . "'/>" .
+                        "<input type='hidden' name='productId' value='" . $productId . "'/>" .
+                        "<input type='hidden' name='control' value='add'/>" .
+                        "Quantità: <input type='number' name='productQty' value='1' min='1' max='100' step='1' class='quantity'/>" .
+                        "<input type='submit' class='btn-add' value=''/>" .
+                    "</form>" .
+                "</div>";
+            /*$suc = "SELECT * FROM pokemon WHERE id = '" . $nextPoke . "'";
+            
+            $prec = "SELECT * FROM pokemon WHERE id = '" . $prevPoke . "'";
+            
+            $next = $this->runQuery($suc);
+            $row1 = $next->fetch();
+            
+            $prev = $this->runQuery($prec);
+            $row0 = $prev->fetch();*/
+            
+            
+            
+            //Da sistemare, scorrere i dettagli attraverso le pagine
+            
+            /*$totPoke = "SELECT count(*) FROM pokemon";
+            $allPoke = $this->runQuery($totPoke);
+            
+            echo "<div class='details-nav'>";
+            
+            if($idPoke > 1){
+                $prevPoke = $idPoke - 1; //id del Pokemon precedente
+                
+                echo "<button class='btn-pokeback'>" .
+                        "<img src='img/sprites/" . $prevPoke . ".png' class='img-prev'>" .
+                     "</button>";
+            }
+            
+            if($idPoke < $allPoke){
+                $nextPoke = $idPoke + 1; //id del Pokemon successivo
+                
+                echo "<button class='btn-pokenext'>" .
+                            "<img src='img/sprites/" . $nextPoke . ".png' class='img-next'>" .
+                         "</button>";
+            }
+            
+            echo "</div>";*/
             
         }
         
@@ -345,6 +393,21 @@
             
             return $newString;
         }
+    }
+
+    class Cart{
+        public $id;
+        public $identifier;
+        public $qty;
+        public $price;
+
+        function __construct($id, $idetifier, $price, $qty) {
+            $this->id = $id;
+            $this->identifier=$idetifier;
+            $this->qty = $qty;
+            $this->price = $price;
+        }
+
     }
     
 ?>
