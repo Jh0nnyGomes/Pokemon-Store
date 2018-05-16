@@ -641,3 +641,16 @@ p {
     top: -5px;
     width: 65%;
 }
+
+.btn-delete[type=submit]{
+    width: 50%;
+    height: 50px;
+    background-image: url(../img/delete-icon.png);
+    background-size: 40px 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    background-position: 2px 10px;
+}

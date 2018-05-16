@@ -323,7 +323,6 @@
                         "<input type='hidden' name='productId' value='" . $productId . "'/>" .
                         "<input type='hidden' name='productPrice' value='" . $productPrice . "'/>" .
                         "<input type='hidden' name='productName' value='" . $productName . "'/>" .
-                        "<input type='hidden' name='productId' value='" . $productId . "'/>" .
                         "<input type='hidden' name='control' value='add'/>" .
                         "Quantità: <input type='number' name='productQty' value='1' min='1' max='100' step='1' class='quantity'/>" .
                         "<input type='submit' class='btn-add' value=''/>" .
@@ -401,9 +400,9 @@
         public $qty;
         public $price;
 
-        function __construct($id, $idetifier, $price, $qty) {
+        function __construct($id, $identifier, $price, $qty) {
             $this->id = $id;
-            $this->identifier=$idetifier;
+            $this->identifier=$identifier;
             $this->qty = $qty;
             $this->price = $price;
         }
@@ -413,7 +412,17 @@
                  "<td> <img src='img/sprites/" . $this->id . ".png'></td>" .
                  "<td>" . $this->identifier . "</td>" .
                  "<td>" . $this->price . "</td>" .
-                 "<td>" . $this->qty ."</td>";
+                 "<td>" . $this->qty ."</td>" .
+                 "<td>" .
+                    "<form action='cart.php' method='post'>" . 
+                        "<input type='hidden' name='control' value='delete'/>" .
+                        "<input type='hidden' name='productId' value='" . $this->id . "'/>" .
+                        "<input type='hidden' name='productPrice' value='" . $this->price . "'/>" .
+                        "<input type='hidden' name='productName' value='" . $this->identifier . "'/>" .
+                        "<input type='hidden' name='productQty' value='" . $this->qty . "'/>" .
+                        "<button type='submit' class='btn-delete'></button>" .
+                    "</form>" .
+                "</td>";
         }
         
         function Update($qty, $k){

@@ -60,7 +60,7 @@
                             $checkItem = unserialize($cart);
                             
                             if($checkItem->id == $productId){
-                                Update($checkItem->qty + $productQty, $key);
+                                $checkItem->Update($checkItem->qty + $productQty, $key);
                                 
                                 $exist = true;
                                 
@@ -68,6 +68,10 @@
                             }
                         }
                         
+                        if($exist == false){
+                            array_push($_SESSION['products'], $item);
+                            
+                        }
                         
                     }
                 }
@@ -88,6 +92,7 @@
                               <th scope='col'>Nome</th>
                               <th scope='col'>Prezzo</th>
                               <th scope='col'>Quantità</th>
+                              <th scope='col'></th>
                             </tr>
                         </thead>
                         <tbody>";
@@ -106,7 +111,7 @@
                     }
                     
                     echo "<tr>" .
-                            "<td colspan='5'> Prezzo Totale: " . $subTotal . "</td>" .
+                            "<td colspan='6'> Prezzo Totale: " . $subTotal . "</td>" .
                          "</tr>";
                     
                 }
