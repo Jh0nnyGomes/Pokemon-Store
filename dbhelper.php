@@ -319,7 +319,7 @@
                 "</div>";
             
             echo "<div class='add'>" .
-                    "<form method='post' action='cart'>" . 
+                    "<form method='post' action='cart.php'>" . 
                         "<input type='hidden' name='productId' value='" . $productId . "'/>" .
                         "<input type='hidden' name='productPrice' value='" . $productPrice . "'/>" .
                         "<input type='hidden' name='productName' value='" . $productName . "'/>" .
@@ -406,6 +406,20 @@
             $this->identifier=$idetifier;
             $this->qty = $qty;
             $this->price = $price;
+        }
+        
+        function itemOnTable(){
+            echo "<td>" . $this->id . "</td>" .
+                 "<td> <img src='img/sprites/" . $this->id . ".png'></td>" .
+                 "<td>" . $this->identifier . "</td>" .
+                 "<td>" . $this->price . "</td>" .
+                 "<td>" . $this->qty ."</td>";
+        }
+        
+        function Update($qty, $k){
+            $item = new Cart($_POST['productId'], $_POST['productName'], $_POST['productPrice'], $qty);
+            
+            $_SESSION['products'][$k] = serialize($item);
         }
 
     }

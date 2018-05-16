@@ -35,18 +35,89 @@
     <div class="main-container">
         <?php
             
-               include(dbhelper.php);
+                include('dbhelper.php');
+                if(isset($_SESSION['login_user'])){
+                            echo '<script> UserIcon("'. $_SESSION['login_user'] .'"); </script>';
+                        }
                 
                 if(isset($_POST['control']) && $_POST['control'] == 'add'){
                     $productId = $_POST['productId']; 
                     $productQty = $_POST['productQty']; 
                     $productPrice = $_POST['productPrice'];
                     $productName = $_POST['productName'];
+                
+        
+                    $cart = new Cart($productId, $productName, $productPrice, $productQty);
+
+                    $item = (serialize($cart));
+
+                    if(!isset($_SESSION['products']))
+                        $_SESSION['products'] = array($item);
+                    else{
+                        $exist = false;
+                        
+                        foreach($_SESSION['products'] as $key => $cart){
+                            $checkItem = unserialize($cart);
+                            
+                            if($checkItem->id == $productId){
+                                Update($checkItem->qty + $productQty, $key);
+                                
+                                $exist = true;
+                                
+                                break;
+                            }
+                        }
+                        
+                        
+                    }
+                }
+                
+                if(isset($_POST['control']) && $_POST['control'] == 'empty'){
+                    $_SESSION['products'] = null;
+                    
+                    echo "Il carrello è vuoto";
                 }
         
-                $cart = new Cart($productId, $productName, $productPrice, $productQty);
+                if(isset($_SESSION['products'])){
+                   echo "<div class='catalog'>
+                    <table class='list'>
+                        <thead>
+                            <tr>
+                              <th scope='col'>Id</th>
+                              <th scope='col'></th>
+                              <th scope='col'>Nome</th>
+                              <th scope='col'>Prezzo</th>
+                              <th scope='col'>Quantità</th>
+                            </tr>
+                        </thead>
+                        <tbody>";
+                    
+                    $subTotal = 0;
+                    
+                    foreach($_SESSION['products'] as $product){
+                        echo "<tr>";
+                        
+                        $curItem = unserialize($product);
+                        $curItem->itemOnTable();
+                        
+                        $subTotal = $subTotal + ($curItem->price * $curItem->qty);
+                        
+                        echo "</tr>";
+                    }
+                    
+                    echo "<tr>" .
+                            "<td colspan='5'> Prezzo Totale: " . $subTotal . "</td>" .
+                         "</tr>";
+                    
+                }
         
-                $item = (serialize($cart));
+                if(count($_SESSION['products']) > 0){
+                    echo "<form method='post' action='cart.php'>" .
+                            "<input type='submit' value='Empty' />" .
+                            "<input type='hidden' name='control' value='empty' />" .
+                         "</form>";
+
+                }
             ?>
     </div>
 </body>
