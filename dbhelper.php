@@ -412,7 +412,17 @@
                  "<td> <img src='img/sprites/" . $this->id . ".png'></td>" .
                  "<td>" . $this->identifier . "</td>" .
                  "<td>" . $this->price . "</td>" .
-                 "<td>" . $this->qty ."</td>" .
+                 "<td>" . $this->qty .
+                    "<form action='cart.php' method='post'>" .
+                        "<input type='number' name='newqty' value='1' min='1' max='100' step='1' class='quantity'/>" .
+                        "<input type='hidden' name='control' value='modify'/>" .
+                        "<input type='hidden' name='productId' value='" . $this->id . "'/>" .
+                        "<input type='hidden' name='productPrice' value='" . $this->price . "'/>" .
+                        "<input type='hidden' name='productName' value='" . $this->identifier . "'/>" .
+                        "<input type='hidden' name='productQty' value='" . $this->qty . "'/>" .
+                        "<button type='submit' class='add-item'></button>" .
+                    "</form>" .
+                 "</td>" .
                  "<td>" .
                     "<form action='cart.php' method='post'>" . 
                         "<input type='hidden' name='control' value='delete'/>" .
@@ -426,7 +436,7 @@
         }
         
         function Update($qty, $k){
-            $item = new Cart($_POST['productId'], $_POST['productName'], $_POST['productPrice'], $qty);
+            $item = new Cart($_POST['productId'], $_POST['productName'], $_POST['productPrice'], $_POST['productQty'] + $qty);
             
             $_SESSION['products'][$k] = serialize($item);
         }

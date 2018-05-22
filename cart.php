@@ -82,6 +82,24 @@
                     echo "Il carrello è vuoto";
                 }
         
+                if(isset($_POST['control']) && $_POST['control'] == 'delete'){
+                    foreach($_SESSION['products'] as $key => $cart){
+                        $del = unserialize($cart);
+                        
+                        if($del->id == $_POST['productId'] && $del->identifier == $_POST['productName'] && $del->qty == $_POST['productQty'] && $del->price == $_POST['productPrice'])
+                            unset($_SESSION['products'][$key]);
+                    }
+                }
+        
+                if(isset($_POST['control']) && $_POST['control'] == 'modify'){
+                    foreach($_SESSION['products'] as $key => $cart){
+                        $del = unserialize($cart);
+                        
+                        if($del->id == $_POST['productId'] && $del->identifier == $_POST['productName'] && $del->qty == $_POST['productQty'] && $del->price == $_POST['productPrice'])
+                            $del->Update($_POST['newqty'], $key);
+                    }
+                }
+        
                 if(isset($_SESSION['products'])){
                    echo "<div class='catalog'>
                     <table class='list'>
@@ -118,7 +136,7 @@
         
                 if(count($_SESSION['products']) > 0){
                     echo "<form method='post' action='cart.php'>" .
-                            "<input type='submit' value='Empty' />" .
+                            "<input type='submit' value='Empty'  />" .
                             "<input type='hidden' name='control' value='empty' />" .
                          "</form>";
 

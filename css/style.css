@@ -654,3 +654,31 @@ p {
     border: none;
     background-position: 2px 10px;
 }
+
+.add-item{
+    width: 15%;
+    height: 50px;
+    background-image: url(../img/add-icon.png);
+    background-size: 30px 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    background-position: 0px 20px;
+}
+
+.empty{
+    position: absolute;
+    bottom: 0%;
+}
+
+.btn-empty[type=submit]{
+    position: absolute;
+    bottom: 0%;
+    width: 1000%;
+    height: 30px;
+    margin-left: 750%;
+    border-radius: 20px;
+    border: 2px solid #75bfff;
+}
