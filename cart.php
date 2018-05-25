@@ -19,7 +19,7 @@
         <ul class="main-navbarlist">
             <li><a href="index.php">Home</a></li>
             <li><a href="catalogo.php">Catalogo</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="cart.php">Carrello</a></li>
 
             <form action="search.php" method="get">
                 <input type="text" placeholder="Cerca.." name="search" class="search">
@@ -82,6 +82,9 @@
                     echo "Il carrello è vuoto";
                 }
         
+                if(!isset($_SESSION['products']))
+                    echo "Il carrello è vuoto";
+        
                 if(isset($_POST['control']) && $_POST['control'] == 'delete'){
                     foreach($_SESSION['products'] as $key => $cart){
                         $del = unserialize($cart);
@@ -136,8 +139,8 @@
         
                 if(count($_SESSION['products']) > 0){
                     echo "<form method='post' action='cart.php'>" .
-                            "<input type='submit' value='Empty'  />" .
-                            "<input type='hidden' name='control' value='empty' />" .
+                            "<input type='submit' value='Empty' class='btn-empty'/>" .
+                            "<input type='hidden' name='control' value='empty'/>" .
                          "</form>";
 
                 }

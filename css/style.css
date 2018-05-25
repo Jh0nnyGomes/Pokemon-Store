@@ -592,23 +592,24 @@ p {
 
 .details-nav{
     position: absolute;
-    top: 70%;
+    bottom: 0%;
     width: 100%;
+    height: 20%;
 }
 
-.btn-pokeback{
+.img-pokeback{
     float: left;
     background-image: url(../img/backward.png);
-    background-position: 5px 25px;
+    background-position: 0px 30px;
     background-repeat: no-repeat;
-    background-size: 50px 50px;
-    width: 10%;
-    margin-left: 20%;
+    background-size: 70px 70px;
+    margin-left: 5%;
     background-color: rgba(255, 255, 255, 0);
-    border: none;
+    padding-left: 80px;
+    margin-top: 1%;
 }
 
-.btn-pokeback:hover{
+.img-pokeback:hover{
     cursor: pointer;
 }
 
@@ -619,19 +620,18 @@ p {
     width: 65%;
 }
 
-.btn-pokenext{
+.img-pokenext{
     float: right;
     background-image: url(../img/forward.png);
-    background-position: 92px;
+    background-position: 115px 30px;
     background-repeat: no-repeat;
-    background-size: 50px 50px;
-    width: 10%;
-    margin-right: 20%;
+    background-size: 70px 70px;
+    margin-right: 10%;
     background-color: rgba(255, 255, 255, 0);
-    border: none;
+    padding-right: 90px;
 }
 
-.btn-pokenext:hover{
+.img-pokenext:hover{
     cursor: pointer;
 }
 
@@ -676,9 +676,9 @@ p {
 .btn-empty[type=submit]{
     position: absolute;
     bottom: 0%;
-    width: 1000%;
+    width: 50%;
     height: 30px;
-    margin-left: 750%;
+    margin-left: 25%;
     border-radius: 20px;
     border: 2px solid #75bfff;
 }

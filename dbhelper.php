@@ -287,7 +287,6 @@
             $productPrice = $row['base_experience'];
             
             $price = $this->addCurrency($productPrice);
-            
             //echo "<img class = 'detail-img' src='img/sprites/" . $row['id']. ".png'>";
             
             echo "<div class = 'details-container'>" . //div con la tabella dei dettagli dei Pokemon
@@ -342,7 +341,7 @@
             
             //Da sistemare, scorrere i dettagli attraverso le pagine
             
-            /*$totPoke = "SELECT count(*) FROM pokemon";
+            $totPoke = "SELECT count(*) FROM pokemon";
             $allPoke = $this->runQuery($totPoke);
             
             echo "<div class='details-nav'>";
@@ -350,20 +349,24 @@
             if($idPoke > 1){
                 $prevPoke = $idPoke - 1; //id del Pokemon precedente
                 
-                echo "<button class='btn-pokeback'>" .
-                        "<img src='img/sprites/" . $prevPoke . ".png' class='img-prev'>" .
-                     "</button>";
+                echo "<form action='details.php' method='get'>" . 
+                        "<input type='hidden' name='idPoke' value='" . $prevPoke . "'/>" .
+                        /*"<input type='image' src='img/backward.png' class='img-pokeback'/>" .*/
+                        "<input type='image' src='img/sprites/" . $prevPoke . ".png' class='img-pokeback'/>" .
+                     "</form>";
             }
             
             if($idPoke < $allPoke){
                 $nextPoke = $idPoke + 1; //id del Pokemon successivo
                 
-                echo "<button class='btn-pokenext'>" .
-                            "<img src='img/sprites/" . $nextPoke . ".png' class='img-next'>" .
-                         "</button>";
+                echo "<form action='details.php' method='get'>" . 
+                        "<input type='hidden' name='idPoke' value='" . $nextPoke . "'/>" .
+                        /*"<input type='image' src='img/forward.png' class='img-pokenext'/>" .*/
+                        "<input type='image' src='img/sprites/" . $nextPoke . ".png' class='img-pokenext'/>" .
+                     "</form>";
             }
             
-            echo "</div>";*/
+            echo "</div>";
             
         }
         

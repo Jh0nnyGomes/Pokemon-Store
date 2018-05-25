@@ -11,7 +11,7 @@
             <ul class="main-navbarlist">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="catalogo.php">Catalogo</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="cart.php">Carrello</a></li>
                 
                 <form action="search.php" method="get">
                     <input type="text" placeholder="Cerca.." name="search" class="search">
